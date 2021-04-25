@@ -85,6 +85,18 @@ public class MyLinkedList {
         return size;
     }
 
+    //searching and inserting elements in between
+    public boolean searchAndInsertElement(INode searchNode, INode insertNode) {
+        INode tempNode = this.head;
+        while (tempNode != null){
+            if (tempNode.getKey().equals(searchNode.getKey())){
+                insert(tempNode, insertNode);
+                return true;
+            }
+            tempNode = tempNode.getNext();
+        }
+        return false;
+    }
 
     //printing nodes
     public void printMyNodes() {

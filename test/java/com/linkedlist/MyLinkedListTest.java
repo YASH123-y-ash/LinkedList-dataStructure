@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 public class MyLinkedListTest {
 
     @Test
-    public void given3NumbersWhenAddedToLinkedListShouldBeAddedToTop() {
+    public void givenElementsWhenAdded_ShouldAddedToTop() {
         MyNode<Integer> myFirstNode = new MyNode<>(70);
         MyNode<Integer> mySecondNode = new MyNode<>(30);
         MyNode<Integer> myThirdNode = new MyNode<>(56);
@@ -22,7 +22,7 @@ public class MyLinkedListTest {
     }
 
     @Test
-    public void given3NumbersWhenAppendingShouldBeAddedToLast() {
+    public void givenElementsWhenAppending_ShouldAddedToLast() {
         MyNode<Integer> myFirstNode = new MyNode<>(56);
         MyNode<Integer> mySecondNode = new MyNode<>(30);
         MyNode<Integer> myThirdNode = new MyNode<>(70);
@@ -38,7 +38,7 @@ public class MyLinkedListTest {
     }
 
     @Test
-    public void given3NumbersWhenInsertingSecondInBetweenShouldPassedLinkedListResult() {
+    public void givenElementsWhenInsertedInBetween_ShouldPass() {
         MyNode<Integer> myFirstNode = new MyNode<>(56);
         MyNode<Integer> mySecondNode = new MyNode<>(30);
         MyNode<Integer> myThirdNode = new MyNode<>(70);
@@ -66,6 +66,22 @@ public class MyLinkedListTest {
         myLinkedList.printMyNodes();
         boolean result = myLinkedList.head.equals(mySecondNode) &&
                 myLinkedList.tail.equals(myThirdNode);
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    void givenElementsWhenDeletedLastElement_ShouldPass() {
+        MyNode<Integer> myFirstNode = new MyNode<>(56);
+        MyNode<Integer> mySecondNode = new MyNode<>(30);
+        MyNode<Integer> myThirdNode = new MyNode<>(70);
+        MyLinkedList myLinkedList = new MyLinkedList();
+        myLinkedList.add(myFirstNode);
+        myLinkedList.append(myThirdNode);
+        myLinkedList.insert(myFirstNode, mySecondNode);
+        myLinkedList.popLast();
+        myLinkedList.printMyNodes();
+        boolean result = myLinkedList.head.equals(myFirstNode) &&
+                myLinkedList.tail.equals(mySecondNode);
         Assertions.assertTrue(result);
     }
 }
